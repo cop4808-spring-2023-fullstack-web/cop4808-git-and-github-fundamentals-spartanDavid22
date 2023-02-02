@@ -193,6 +193,10 @@ function operate(x, y, op) {
         return x / y;
         }
     }
+    else if(op === "x^y")
+    {
+        return Math.pow(x,y);
+    }
 }
 
 function roundAccurately(num, places) {
