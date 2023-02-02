@@ -111,3 +111,12 @@ button {
 .percent:active {
     background-color: rgb(123, 189, 255);
 }
+
+.extra-operator {
+    background-color: #D2B48C;
+    font-weight: bold;
+}
+
+.extra-operator:active {
+    background-color: #f8d19e;
+}
