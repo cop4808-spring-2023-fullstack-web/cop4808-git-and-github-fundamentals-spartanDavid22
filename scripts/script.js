@@ -98,6 +98,14 @@ function inputOperator(operator) {
             result = null;
             return;
         }
+        else if(operator == "ln")
+        {
+            firstOperand = displayValue;
+            result = ln(Number(firstOperand));
+            displayValue = roundAccurately(result, 15).toString();
+            result = null;
+            return;
+        }
         firstOperator = operator;
         firstOperand = displayValue;
     }
@@ -195,4 +203,10 @@ function roundAccurately(num, places) {
 function sqrt(x)
 {
     return Math.sqrt(x);
+}
+
+//Function for performing the natural log (ln) calculation
+function ln(x)
+{
+    return Math.log(x);
 }
