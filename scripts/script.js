@@ -27,7 +27,7 @@ function clickButton() {
             if(buttons[i].classList.contains('operand')) {
                 inputOperand(buttons[i].value);
                 updateDisplay();
-            } else if(buttons[i].classList.contains('operator')) {
+            } else if(buttons[i].classList.contains('operator') || buttons[i].classList.contains('extra-operator')) {
                 inputOperator(buttons[i].value);
             } else if(buttons[i].classList.contains('equals')) {
                 inputEquals();
@@ -90,6 +90,14 @@ function inputOperator(operator) {
         result = null;
     } else { 
         //2nd click - handles first operator input
+        if(operator == "sqrt")
+        {
+            firstOperand = displayValue;
+            result = sqrt(Number(firstOperand));
+            displayValue = roundAccurately(result, 15).toString();
+            result = null;
+            return;
+        }
         firstOperator = operator;
         firstOperand = displayValue;
     }
@@ -181,4 +189,10 @@ function operate(x, y, op) {
 
 function roundAccurately(num, places) {
     return parseFloat(Math.round(num + 'e' + places) + 'e-' + places);
+}
+
+//Square root function that takes a number x and returns the square root of x
+function sqrt(x)
+{
+    return Math.sqrt(x);
 }
