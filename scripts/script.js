@@ -90,7 +90,7 @@ function inputOperator(operator) {
         result = null;
     } else { 
         //2nd click - handles first operator input
-        if(operator == "sqrt")
+        if(operator == "sqrt")  //Handles the operation of calling the square root
         {
             firstOperand = displayValue;
             result = sqrt(Number(firstOperand));
@@ -98,10 +98,16 @@ function inputOperator(operator) {
             result = null;
             return;
         }
-        else if(operator == "ln")
+        else if(operator == "ln")   //Handles the operation of perforing the natural log
         {
             firstOperand = displayValue;
             result = ln(Number(firstOperand));
+            if(result == "Error")   //Triggered if the user tries to do ln of a negative number
+            {
+                displayValue = "Error"; //Error will be displayed on the screen
+                result = null;
+                return;
+            }
             displayValue = roundAccurately(result, 15).toString();
             result = null;
             return;
@@ -193,7 +199,7 @@ function operate(x, y, op) {
         return x / y;
         }
     }
-    else if(op === "x^y")
+    else if(op === "x^y")   //Handles the operation for raising x to the y power
     {
         return Math.pow(x,y);
     }
@@ -212,5 +218,9 @@ function sqrt(x)
 //Function for performing the natural log (ln) calculation
 function ln(x)
 {
+    if(x < 0)   //Return error if the user enters a negative number
+    {
+        return("Error");
+    }
     return Math.log(x);
 }

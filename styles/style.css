@@ -120,3 +120,7 @@ button {
 .extra-operator:active {
     background-color: #f8d19e;
 }
+
+button:hover{
+    cursor: pointer;
+}
