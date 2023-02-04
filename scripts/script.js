@@ -112,6 +112,20 @@ function inputOperator(operator) {
             result = null;
             return;
         }
+        else if(operator == '10^x') //Triggered when to do 10 to the x power
+        {
+            firstOperand = displayValue;
+            result = tenToX(Number(firstOperand));
+            if(firstOperand < 8)    //Displays full numbers 
+            {
+                displayValue = result.toString().slice(0,15);
+            }
+            else{                   //Displays scientific notation for larger numbers
+                displayValue = result.toExponential().toString();
+            }
+            result = null;
+            return;
+        }
         firstOperator = operator;
         firstOperand = displayValue;
     }
@@ -142,7 +156,7 @@ function inputEquals() {
         if(result === 'lmao') {
             displayValue = 'lmao';
         } else {
-            displayValue = roundAccurately(result, 15).toString();
+            displayValue = result.toString();
             firstOperand = displayValue;
             secondOperand = null;
             firstOperator = null;
@@ -223,4 +237,10 @@ function ln(x)
         return("Error");
     }
     return Math.log(x);
+}
+
+//Function to perform 10 to the x power
+function tenToX(x)
+{   
+    return Number(Math.pow(10,x));
 }

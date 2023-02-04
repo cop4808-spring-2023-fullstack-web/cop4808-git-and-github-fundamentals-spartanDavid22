@@ -112,6 +112,8 @@ button {
     background-color: rgb(123, 189, 255);
 }
 
+/*CSS classes for the newly added buttons*/
+
 .extra-operator {
     background-color: #D2B48C;
     font-weight: bold;
@@ -120,7 +122,7 @@ button {
 .extra-operator:active {
     background-color: #f8d19e;
 }
-
+/*Allows the pointer to change when it's over a button*/
 button:hover{
     cursor: pointer;
 }
